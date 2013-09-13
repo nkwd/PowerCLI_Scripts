@@ -1,0 +1,1 @@
+Get-VM | Select-Object Name,NumCPU,MemoryMB,ResourcePool,ProvisionedSpaceGB,UsedSpaceGB,@{N="IP Address";E={@($_.guest.IPAddress[0])}},@{N="MacAddress";E={$_.NetworkAdapters | ForEach-Object {$_.MacAddress}}},VMHost | Export-Csv c:\VMsList.csv -NoTypeInformation
